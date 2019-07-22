@@ -125,7 +125,7 @@ canvas {
   .text {
     font-size: 30px;
     letter-spacing: 6px;
-    margin-top: -100px;
+    margin-top: -30px;
   }
 }
 
@@ -133,6 +133,6 @@ canvas {
   .text {
     font-size: 24px;
     letter-spacing: 6px;
-    margin-top: -150px;
+    margin-top: -50px;
   }
 }
