@@ -87,11 +87,12 @@ canvas {
 
 .enter {
   position: absolute;
-  bottom: 150px;
+  top: 100px;
   left: 50%;
   -webkit-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
   z-index: 10000;
+  white-space: nowrap;
 }
 
 .enter p {
@@ -126,6 +127,9 @@ canvas {
     font-size: 30px;
     letter-spacing: 6px;
     margin-top: -30px;
+  }
+  .enter p {
+      letter-spacing: 10px;
   }
 }
 
