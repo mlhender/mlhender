@@ -206,6 +206,10 @@
 
   z-index: 10000;
   cursor: pointer;
+
+  opacity: 0;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
 }
 
 .button span {
@@ -225,6 +229,7 @@
 
   -webkit-transition-delay: .15s;
   transition-delay: .15s;
+  width: 0;
 }
 
 .button .left {
@@ -235,6 +240,7 @@
 
   -webkit-transition-delay: 0s;
   transition-delay: 0s;
+  height: 0;
 }
 
 .button .right {
@@ -244,6 +250,7 @@
   top: 0;
   -webkit-transition-delay: .3s;
   transition-delay: .3s;
+  height: 0;
 }
 
 .button .bottom {
@@ -253,7 +260,38 @@
   left: 50%;
   -webkit-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
+  width: 0;
 }
+
+.button.active {
+  opacity: 1;
+}
+
+.button.active .top {
+  width: 100%;
+}
+
+.button.active .left {
+  height: 100%;
+}
+
+.button.active .right {
+  height: 100%;
+}
+
+.button.active .bottom {
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
 
 .button:hover .top {
   width: 0;
@@ -280,6 +318,7 @@
   -webkit-transition-delay: .3s;
   transition-delay: .3s;
 }
+
 
 
 @media(max-width: 1100px) {
