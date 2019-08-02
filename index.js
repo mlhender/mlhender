@@ -1,6 +1,6 @@
 
 $( document ).ready(function() {
-    $(".background").addClass("active");
+  setTimeout(function(){     $(".background").addClass("active"); }, 500);
 });
 
   $(".button-container").click(function() {
