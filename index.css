@@ -1,180 +1,275 @@
-html,
-body {
-  margin: 0;
-  padding: 0;
-  background: #000;
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+    }
+
+    .background {
+      width: 960px;
+      height: 540px;
+      left: 50%;
+      position: fixed;
+      top: 0;
+      -webkit-transform: translate(-50%, 0);
+      transform: translate(-50%, 0);
+    }
+
+
+    @font-face {
+        font-family: 'Pervitina Dex Regular';
+        font-style: normal;
+        font-weight: normal;
+        src: local('Pervitina Dex Regular'), url('Pervitina-Dex-FFP.woff') format('woff');
+    }
+
+
+    .button-container {
+      position: absolute;
+      z-index: 100000;
+      top: 10px;
+      right: 15px;
+      width: 50px;
+      height: 50px;
+      mix-blend-mode: difference;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .button-container span {
+      position: absolute;
+      width: 30px;
+      height: 3px;
+      background: #fff;
+      top: 22px;
+      left: 10px;
+      -webkit-transition: all .5s ease;
+      transition: all .5s ease;
+    }
+
+    .button-container span:nth-of-type(1) {
+      -webkit-transform: translate(0, -5px);
+      transform: translate(0, -5px);
+    }
+    .button-container span:nth-of-type(2) {
+      -webkit-transform: translate(0, 5px);
+      transform: translate(0, 5px);
+    }
+
+    .button-container.open  span:nth-of-type(1) {
+      -webkit-transform: translate(0, 0) rotate(45deg);
+      transform: translate(0, 0) rotate(45deg);
+    }
+
+    .button-container.open  span:nth-of-type(2) {
+      -webkit-transform: translate(0, 0) rotate(-45deg);
+      transform: translate(0, 0) rotate(-45deg);
+    }
+
+    .menu-wrapper {
+      position: absolute;
+      width: 100%;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+    }
+
+    .menu {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: #fff;
+      -webkit-transform: translate(0, 100%);
+      transform: translate(0, 100%);
+      -webkit-transition: all .6s ease;
+      transition: all .6s ease;
+    }
+
+    .menu.open {
+      -webkit-transform: translate(0, 0);
+      transform: translate(0, 0);
+    }
+
+    .nav {
+      position: absolute;
+      left: 195px;
+      top: 270px;
+    }
+
+    .nav ul li {
+      font-family: "Pervitina Dex Regular";
+      list-style-type: none;
+      font-size: 87px;
+      display: inline-block;
+      margin-left: 40px;
+      margin-right: 30px;
+      text-decoration: underline;
+    }
+
+
+    .nav ul li a {
+	    color: #000;
+    }
+
+    .text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 40px;
+      font-family: "Pervitina Dex Regular";
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 17px;
+      color: #000;
+      z-index: 10000;
+      color: #F0F8FF;
+      font-weight: normal;
+      font-style: normal;
+      position: fixed;
+      font-size: 240px;
+      letter-spacing: 40px;
+      mix-blend-mode: difference;
+      top: 540px;
+      margin-top: -25px;
+      margin-left: -15px;
+      width: 100%;
+      text-align: center;
+      z-index: 100000;
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 4px #F0F8FF, 0 0 7px #F0F8FF, 0 0 8px #F0F8FF, 0 0 10px #F0F8FF, 0 0 15px #F0F8FF;
+      white-space: nowrap;
+    }
+
+
+
+    @media(max-width: 1100px) {
+      .background {
+        height: 60vh;
+        overflow: hidden;
+        top: -5px;
+      }
+
+      .text {
+        font-size: 70px;
+        letter-spacing: 10px;
+        margin: 0;
+        top: 60vh;
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 4px #F0F8FF, 0 0 7px #F0F8FF, 0 0 8px #F0F8FF, 0 0 5px #F0F8FF, 0 0 5px #F0F8FF;
+        white-space: nowrap;
+      }
+      .nav {
+        top: 25px;
+        left: -30px;
+        margin: 0;
+      }
+
+      .nav ul li {
+        font-family: "Pervitina Dex Regular";
+        list-style-type: none;
+        font-size: 50px;
+        display: block;
+        text-decoration: underline;
+      }
+
+
+    }
+
+.button {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  width: 250px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+
+  font-family: "Pervitina Dex Regular";
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 10px;
+  text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #F0F8FF, 0 0 1px #F0F8FF, 0 0 1px #F0F8FF, 0 0 1px #F0F8FF, 0 0 5px #F0F8FF;
+  color: #fff;
+
+  z-index: 10000;
+  cursor: pointer;
 }
 
-.background {
-  width: 960px;
-  height: 540px;
-  left: 50%;
-  position: fixed;
+.button span {
+  position: absolute;
+  background: #fff;
+  box-shadow:  0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #F0F8FF, 0 0 70px #F0F8FF, 0 0 80px #F0F8FF, 0 0 100px #F0F8FF, 0 0 150px #F0F8FF;
+
+  -webkit-transition: all .15s ease;
+  transition: all .15s ease;
+}
+
+.button .top {
+  width: 100%;
+  height: 1px;
   top: 0;
+  left: 0;
+
+  -webkit-transition-delay: .15s;
+  transition-delay: .15s;
+}
+
+.button .left {
+  width: 1px;
+  height: 100%;
+  left: 0;
+  top: 0;
+
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+
+.button .right {
+  width: 1px;
+  height: 100%;
+  right: 0;
+  top: 0;
+  -webkit-transition-delay: .3s;
+  transition-delay: .3s;
+}
+
+.button .bottom {
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  left: 50%;
   -webkit-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
 }
 
-
-@font-face {
-    font-family: 'Pervitina Dex Regular';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Pervitina Dex Regular'), url('Pervitina-Dex-FFP.woff') format('woff');
+.button:hover .top {
+  width: 0;
 }
 
-.title {
-  font-family: "Pervitina Dex Regular";
-  font-weight: normal;
-  font-style: normal;
-  color: #fff;
-  position: fixed;
-  font-size: 440px;
-  letter-spacing: 40px;
-  mix-blend-mode: difference;
-  top: 540px;
-  margin-top: -245px;
-  margin-left: 20px;
-  width: 100%;
-  text-align: center;
-  z-index: 100000;
+.button:hover .left {
+  height: 0;
+
+   -webkit-transition-delay: .3s;
+  transition-delay: .3s;
 }
 
+.button:hover .right {
+  height: 0;
+  bottom: 0;
 
-.button-container {
-  position: absolute;
-  z-index: 100000;
-  top: 10px;
-  right: 15px;
-  width: 50px;
-  height: 50px;
-    mix-blend-mode: difference;
-  color: #fff;
-  cursor: pointer;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
 }
 
-.button-container span {
-  position: absolute;
-  width: 30px;
-  height: 3px;
-  background: #fff;
-  top: 22px;
-  left: 10px;
-  -webkit-transition: all .5s ease;
-  transition: all .5s ease;
-}
-
-.button-container span:nth-of-type(1) {
-  -webkit-transform: translate(0, -5px);
-  transform: translate(0, -5px);
-}
-.button-container span:nth-of-type(2) {
-  -webkit-transform: translate(0, 5px);
-  transform: translate(0, 5px);
-}
-
-.button-container.open  span:nth-of-type(1) {
-  -webkit-transform: translate(0, 0) rotate(45deg);
-  transform: translate(0, 0) rotate(45deg);
-}
-
-.button-container.open  span:nth-of-type(2) {
-  -webkit-transform: translate(0, 0) rotate(-45deg);
-  transform: translate(0, 0) rotate(-45deg);
-}
-
-.menu-wrapper {
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-}
-
-.menu {
-    position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background: #fff;
-  -webkit-transform: translate(0, 100%);
-  transform: translate(0, 100%);
-  -webkit-transition: all .6s ease;
-  transition: all .6s ease;
-}
-
-.menu.open {
-    -webkit-transform: translate(0, 0);
-  transform: translate(0, 0);
-}
-
-.nav {
-  position: absolute;
-  left: 195px;
-  top: 270px;
-}
-
-.nav ul li {
-  font-family: "Pervitina Dex Regular";
-  list-style-type: none;
-  font-size: 87px;
-  display: inline-block;
-  margin-left: 40px;
-  margin-right: 30px;
-  text-decoration: underline;
-}
-
-
-.text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 40px;
-  font-family: "Pervitina Dex Regular";
-  text-transform: uppercase;
-  font-weight: 700;
-  letter-spacing: 15px;
-  color: #000;
-  z-index: 10000;
-  color: #F0F8FF;
-  font-weight: normal;
-  font-style: normal;
-  position: fixed;
-  font-size: 240px;
-  letter-spacing: 40px;
-  mix-blend-mode: difference;
-  top: 540px;
-  margin-left: 20px;
-  width: 100%;
-  text-align: center;
-  z-index: 100000;
-  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 4px #F0F8FF, 0 0 7px #F0F8FF, 0 0 8px #F0F8FF, 0 0 10px #F0F8FF, 0 0 15px #F0F8FF;
-  white-space: nowrap;
-}
-
-
-
-@media(max-width: 1100px) {
-  .text {
-    font-size: 70px;
-    letter-spacing: 20px;
-    margin: 0;
-    top: 70%;
-  }
-  .nav {
-    top: 150px;
-    left: 0px;
-  }
-
-  .nav ul li {
-    font-family: "Pervitina Dex Regular";
-    list-style-type: none;
-    font-size: 50px;
-    display: block;
-    text-decoration: underline;
-  }
-
+.button:hover .bottom {
+  height: 5px;
+  width: 80%;
+  -webkit-transition-delay: .3s;
+  transition-delay: .3s;
 }
