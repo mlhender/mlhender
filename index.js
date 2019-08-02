@@ -1,8 +1,14 @@
 
+$( document ).ready(function() {
+    $(".background").addClass("active");
+});
+
   $(".button-container").click(function() {
     $(".button-container").toggleClass("open");
     $(".menu").toggleClass("open");
   });
+
+
 
 
 
