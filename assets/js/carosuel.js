@@ -1,5 +1,3 @@
-document.body.addEventListener('touchmove', function(e){ e.preventDefault(); });
-
 
 // Các bạn có thể thay đổi giá trị các biến môi trường ở đây:
 var radius = 240; 		// Độ rộng vòng xoay
