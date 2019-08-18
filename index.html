@@ -17,6 +17,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
+<<<<<<< HEAD
   <link rel="stylesheet" href="assets/css/carosuel.css">
   <link rel="stylesheet" href="assets/css/book.css">
   <link rel="stylesheet" href="assets/css/plane.css">
@@ -24,10 +25,19 @@
   <script src="assets/js/ajax.js"></script>
   <script src="assets/js/orbit.js"></script>
   <script src="assets/js/three.js"></script>
+=======
+  <link rel="stylesheet" href="index.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.8.2/pixi.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.3/dat.gui.min.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/982762/ccapture.js"></script>
+>>>>>>> e2a800c0d35a8da17bd56b390ead5d5d55c1ae6c
 </head>
 
 
 <body>
+<<<<<<< HEAD
 
 
   <div class="ui-container">
@@ -144,42 +154,56 @@
   		g011 *= norm1.y;
   		g101 *= norm1.z;
   		g111 *= norm1.w;
+=======
+  <div class="background"></div>
 
-  		float n000 = dot(g000, Pf0);
-  		float n100 = dot(g100, vec3(Pf1.x, Pf0.yz));
-  		float n010 = dot(g010, vec3(Pf0.x, Pf1.y, Pf0.z));
-  		float n110 = dot(g110, vec3(Pf1.xy, Pf0.z));
-  		float n001 = dot(g001, vec3(Pf0.xy, Pf1.z));
-  		float n101 = dot(g101, vec3(Pf1.x, Pf0.y, Pf1.z));
-  		float n011 = dot(g011, vec3(Pf0.x, Pf1.yz));
-  		float n111 = dot(g111, Pf1);
+  <div class="text">
+    <div class="scrambled" title="HILITE"></div>
+  </div>
+>>>>>>> e2a800c0d35a8da17bd56b390ead5d5d55c1ae6c
 
-  		vec3 fade_xyz = fade(Pf0);
-  		vec4 n_z = mix(vec4(n000, n100, n010, n110), vec4(n001, n101, n011, n111), fade_xyz.z);
-  		vec2 n_yz = mix(n_z.xy, n_z.zw, fade_xyz.y);
-  		float n_xyz = mix(n_yz.x, n_yz.y, fade_xyz.x);
-  		return 2.2 * n_xyz;
-  	}
 
-  	void main() {
+  <a href="#">
+  <div class="button">
+    <span class="top"></span>
+    <span class="left"></span>
+    <span class="right"></span>
+    <span class="bottom"></span>
+      ENTER
+  </div>
+  </a>
 
-  		float displacement = u_amplitude * cnoise( u_frequency * position + u_time );
+<!--
+  <div class="button-container">
+    <span></span>
+    <span></span>
+  </div>
+-->
 
-  		vec3 newPosition = position + normal * displacement;
-  		gl_Position = projectionMatrix * modelViewMatrix * vec4( newPosition, 1.0 );
 
-  	}
-  </script>
+<!--
+  <div class="menu-wrapper">
+    <div class="menu">
 
-  <script id="planeFS" type="shader">
-  	precision highp float;
+      <div class="insta">
+        <a href=""></a>
+      </div>
 
-  	void main() {
-      gl_FragColor = vec4(0.0, 0.0, 0.8, 1.0);
-  	}
-  </script>
+      <div class="email">
+        <a href=""></a>
+      </div>
+
+      <div class="nav">
+        <ul>
+          <li>HOME</li>
+          <li>GALLERY</li>
+          <li>SHOP</li>
+        </ul>
+      </div>
+    </div>
   </div>
 
+<<<<<<< HEAD
 
 
 
@@ -308,6 +332,9 @@
 
 
 
+=======
+-->
+>>>>>>> e2a800c0d35a8da17bd56b390ead5d5d55c1ae6c
 </body>
 
 

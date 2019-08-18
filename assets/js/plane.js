@@ -1,3 +1,4 @@
+<<<<<<< HEAD:assets/js/plane.js
 class App {
   /**
    * @constructor
@@ -5,161 +6,220 @@ class App {
   constructor() {
     this.width = window.innerWidth;
     this.height = window.innerHeight;
+=======
 
-    this.DELTA_TIME = 0;
-    this.LAST_TIME = Date.now();
+$( document ).ready(function() {
+  setTimeout(function(){
+    $(".background").addClass("active");
+    $(".button").addClass("active");
+  }, 500);
+});
 
-    this.scene = new Scene(this.width, this.height);
-    this.plane = new Plane();
+  $(".button-container").click(function() {
+    $(".button-container").toggleClass("open");
+    $(".menu").toggleClass("open");
+  });
 
-    this.scene.add(this.plane.mesh);
 
-    const root = document.body.querySelector(".app");
-    root.appendChild(this.scene.renderer.domElement);
 
-    this.update = this.update.bind(this);
 
-    this.addListeners();
 
-    requestAnimationFrame(this.update);
+  // Main Application
+  class Application {
+    constructor(container) {
+      this.images = [
+      'https://i.imgur.com/fS4Ggpt.jpg'];
+
+      this.speed = 0;
+      this.s = 150;
+      this.container = document.querySelector(container);
+      this.width = this.container.offsetWidth;
+      this.height = this.container.offsetHeight;
+
+      this.renderer = new PIXI.autoDetectRenderer(this.width, this.height, {
+        transparent: true,
+        antialias: true });
+
+      this.renderer.autoResize = true;
+    }
+    init() {
+      this.count = 0;
+      this.imageURL = this.images[this.count];
+      this.dispURL = 'https://res.cloudinary.com/dvxikybyi/image/upload/v1486634113/2yYayZk_vqsyzx.png';
+      this.container.appendChild(this.renderer.view);
+      this.stage = new PIXI.Container();
+
+      this.texture = PIXI.Texture.fromImage(this.imageURL);
+      this.sprite = new PIXI.Sprite(this.texture);
+      this.sprite.scale.set(.5, .5);
+      this.sprite.anchor.set(0.0, 0.0);
+
+      this.displacementSprite = PIXI.Sprite.fromImage(this.dispURL);
+      this.displacementSprite.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
+      this.displacementFilter = new PIXI.filters.DisplacementFilter(this.displacementSprite);
+
+      this.displacementSprite.scale.x = 0.5;
+      this.displacementSprite.scale.y = 0.5;
+
+      this.stage.addChild(this.sprite);
+      this.stage.addChild(this.displacementSprite);
+      setInterval(() => {
+        this.count++;
+
+        if (this.count > this.images.length - 1) {
+          this.count = 0;
+        }
+
+        console.log(this.count);
+
+      }, 500);
+      this.container.addEventListener('mouseenter', e => this.animateContainer(e));
+      this.animate();
+    }
+    animate() {
+      requestAnimationFrame(() => this.animate());
+      this.speed += 1;
+      this.imageURL = this.images[this.count];
+
+      this.stage.filters = [this.displacementFilter];
+      this.renderer.render(this.stage);
+
+      TweenMax.to(this.displacementFilter.scale, 1, {
+        x: this.s });
+
+>>>>>>> e2a800c0d35a8da17bd56b390ead5d5d55c1ae6c:index.js
+
+
+      this.displacementSprite.x = this.speed;
+      this.displacementSprite.y = this.speed;
+
+
+    }
+    animateContainer(e) {
+      TweenMax.to(this.displacementFilter.scale, 1, {
+        x: 0 });
+
+    }}
+
+  window.onload = () => {
+
+    let app = new Application('.background');
+    app.init();
+    let image = document.querySelector('.background');
+
+    let int = new Interact(image, 0.1);
+    int.initEvents();
+
+
+
+    const datv = new dat.GUI();
+    datv.add(int, 'skew', 0, 0.1);
+
+  };
+
+
+  "use strict";
+
+  function _classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+      throw new TypeError("Cannot call a class as a function");
+    }
   }
 
-  /**
-   * @method
-   * @name onResize
-   * @description Triggered when window is resized
-   */
-  onResize() {
-    this.width = window.innerWidth;
-    this.height = window.innerHeight;
+  // ——————————————————————————————————————————————————
+  // TextScramble
+  // i——————————————————————————————————————————————————
 
-    this.scene.resize(this.width, this.height);
-  }
+  var TextScramble = (function() {
+    function TextScramble(el) {
+      _classCallCheck(this, TextScramble);
 
-  /**
-   * @method
-   * @name addListeners
-   */
-  addListeners() {
-    window.addEventListener("resize", this.onResize.bind(this));
-  }
+      this.el = el;
+      this.chars = "!@#$%&{}????";
+      this.update = this.update.bind(this);
+    }
 
-  /**
-   * @method
-   * @name update
-   * @description Triggered on every TweenMax tick
-   */
-  update() {
-    this.DELTA_TIME = Date.now() - this.LAST_TIME;
-    this.LAST_TIME = Date.now();
+    TextScramble.prototype.setText = function setText(newText) {
+      var _this = this;
 
-    this.plane.update(this.DELTA_TIME);
-    this.scene.render();
-
-    requestAnimationFrame(this.update);
-  }
-}
-
-class Plane {
-  /**
-   * @constructor
-   */
-  constructor() {
-    this.size = 1000;
-    this.segments = 60;
-
-    this.options = new Options();
-    this.options.initGUI();
-
-    this.uniforms = {
-      u_amplitude: { value: this.options.amplitude },
-      u_frequency: { value: this.options.frequency },
-      u_time: { value: 0.0 }
+      var oldText = this.el.innerText;
+      var length = Math.max(oldText.length, newText.length);
+      var promise = new Promise(function(resolve) {
+        return (_this.resolve = resolve);
+      });
+      this.queue = [];
+      for (var i = 0; i < length; i++) {
+        var from = oldText[i] || "";
+        var to = newText[i] || "";
+        var start = Math.floor(Math.random() * 40);
+        var end = start + Math.floor(Math.random() * 40);
+        this.queue.push({ from: from, to: to, start: start, end: end });
+      }
+      cancelAnimationFrame(this.frameRequest);
+      this.frame = 0;
+      this.update();
+      return promise;
     };
 
-    this.geometry = new THREE.PlaneBufferGeometry(
-      this.size,
-      this.size,
-      this.segments,
-      this.segments
-    );
-    this.material = new THREE.ShaderMaterial({
-      uniforms: this.uniforms,
-      vertexShader: document.getElementById("planeVS").innerHTML,
-      fragmentShader: document.getElementById("planeFS").innerHTML,
-      side: THREE.DoubleSide,
-      wireframe: true
-    });
+    TextScramble.prototype.update = function update() {
+      var output = "";
+      var complete = 0;
+      for (var i = 0, n = this.queue.length; i < n; i++) {
+        var _queue$i = this.queue[i];
+        var from = _queue$i.from;
+        var to = _queue$i.to;
+        var start = _queue$i.start;
+        var end = _queue$i.end;
+        var char = _queue$i.char;
 
-    this.mesh = new THREE.Mesh(this.geometry, this.material);
-    this.mesh.rotation.x = 360;
-  }
+        if (this.frame >= end) {
+          complete++;
+          output += to;
+        } else if (this.frame >= start) {
+          if (!char || Math.random() < 0.28) {
+            char = this.randomChar();
+            this.queue[i].char = char;
+          }
+          output += '<span class="dud">' + char + "</span>";
+        } else {
+          output += from;
+        }
+      }
+      this.el.innerHTML = output;
+      if (complete === this.queue.length) {
+        this.resolve();
+      } else {
+        this.frameRequest = requestAnimationFrame(this.update);
+        this.frame++;
+      }
+    };
 
-  /**
-   * @method
-   * @name update
-   * @description Triggered on every TweenMax tick
-   * @param {number} dt - DELTA_TIME
-   */
-  update(dt) {
-    this.uniforms.u_amplitude.value = this.options.amplitude;
-    this.uniforms.u_frequency.value = this.options.frequency;
-    this.uniforms.u_time.value += dt / 1000;
-  }
-}
+    TextScramble.prototype.randomChar = function randomChar() {
+      return this.chars[Math.floor(Math.random() * this.chars.length)];
+    };
 
-class Scene extends THREE.Scene {
-  /**
-   * @constructor
-   */
-  constructor(width, height) {
-    super();
+    return TextScramble;
+  })();
 
-    this.renderer = new THREE.WebGLRenderer({ antialias: true });
-    this.renderer.setSize(width, height);
-    this.renderer.setClearColor(0xfffffff);
+  // —————————————————————————————————————————————————
+  // Example
+  // —————————————————————————————————————————————————
 
-    this.camera = new THREE.PerspectiveCamera(50, width / height, 1, 2000);
-    this.camera.position.z = 100;
-
-    //this.controls = new THREE.OrbitControls(this.camera);
-  }
-
-  /**
-   * @method
-   * @name render
-   * @description Renders/Draw the scene
-   */
-  render() {
-    this.renderer.autoClearColor = true;
-    this.renderer.render(this, this.camera);
-  }
-
-  /**
-   * @method
-   * @name resize
-   * @description Resize the scene according to screen size
-   * @param {number} newWidth
-   * @param {number} newHeight
-   */
-  resize(newWidth, newHeight) {
-    this.camera.aspect = newWidth / newHeight;
-    this.camera.updateProjectionMatrix();
-
-    this.renderer.setSize(newWidth, newHeight);
-  }
-}
-
-class Options {
-  /**
-   * @constructor
-   */
-  constructor() {
-    this.amplitude = 6.0;
-    this.frequency = 0.005;
-  }
-
-  initGUI() {}
-}
-
+<<<<<<< HEAD:assets/js/plane.js
 new App();
+=======
+  var el = document.querySelector(".scrambled");
+  var fx = new TextScramble(el);
+  var ot = el.innerHTML;
+  var nt = el.title;
+
+  var next = function next() {
+    fx.setText(nt).then(function() {
+
+    });
+    el.innerHTML = nt;
+    el.title = ot;
+  };
+
+  next();
+>>>>>>> e2a800c0d35a8da17bd56b390ead5d5d55c1ae6c:index.js
