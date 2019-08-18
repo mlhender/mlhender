@@ -17,23 +17,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
-  <link rel="stylesheet" href="index.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r77/three.min.js"></script>
+  <link rel="stylesheet" href="assets/css/carosuel.css">
+  <link rel="stylesheet" href="assets/css/book.css">
+  <link rel="stylesheet" href="assets/css/plane.css">
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/js/ajax.js"></script>
+  <script src="assets/js/orbit.js"></script>
+  <script src="assets/js/three.js"></script>
 </head>
 
+
 <body>
+
+
   <div class="ui-container">
 
     <div class="text">
-      <div class="scrambled" title="Kn0wtheledge"></div>
-      <div class="enter">
-        <span></span>
-        <p>Coming SOON</p>
-      </div>
-
+      <div class="scrambled" title="HILITE"></div>
     </div>
 
+    <div class="enter">
+      <span></span>
+      <p>View Collections</p>
+    </div>
 
 
     <div class="app"></div>
@@ -174,8 +180,141 @@
   </script>
   </div>
 
+
+
+
+<!-- BOX THAT USER WILL SELECT FROM TO GET THE LINE-->
+
+<div id="box">
+  <!-- Đổi <div> (theo video) thành <img> để dễ dàng thêm, sửa, xoá các hình -->
+  <!-- Muốn thêm ảnh thì chỉ cần thêm tag <img> hoặc <video> -->
+  <div class="collection one">
+    <div class="collection-title">Collection 1</div>
+  </div>
+
+  <div class="collection two">
+    <div class="collection-title">Collection 2</div>
+  </div>
+
+  <div class="collection three">
+    <div class="collection-title">Collection 3</div>
+  </div>
+
+  <div class="collection four">
+    <div class="collection-title">Collection 4</div>
+  </div>
+
+  <p class="a">SPRING / SUMMER</p>
+  <p class="b">SPRING / SUMMER</p>
+
+</div>
+
+
+
+
+
+<!--SECTION-->
+<div class="book-wrapper book-one">
+
+  <div class="book-arrows">
+    <div class="arrow prev">prev</div>
+    <div class="arrow next">next</div>
+  </div>
+
+  <div class="book-container">
+    <div class="book" id="book1">
+      <div class="page">
+        <h1 class="title">C0llection 1</h1>
+      </div>
+
+      <div class="page">
+        <span></span>
+        <h1>Pr0duct 0ne</h1>
+        <h3>$80</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel sodales leo. Donec nec massa quam. Nullam tempor, sem sed lobortis viverra, erat velit convallis neque, quis tincidunt ligula justo vitae urna. Vestibulum interdum ligula eu tempus
+          vestibulum. Mauris vitae libero at eros aliquam pharetra.</p>
+        <div class="button">Purchase</div>
+      </div>
+      <div class="page">
+        <div class="product-image image-1" style="background-image:url(https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=662&q=80)"></div>
+      </div>
+      <div class="page">
+        <span></span>
+        <h1>Pr0duct TW0</h1>
+        <h3>$100</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel sodales leo. Donec nec massa quam. Nullam tempor, sem sed lobortis viverra, erat velit convallis neque, quis tincidunt ligula justo vitae urna. Vestibulum interdum ligula eu tempus
+          vestibulum. Mauris vitae libero at eros aliquam pharetra.</p>
+        <div class="button">Purchase</div>
+      </div>
+      <div class="page">
+        <div class="product-image image-2" style="background-image: url(https://images.unsplash.com/flagged/photo-1556637640-2c80d3201be8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!--SECTION-->
+<div class="book-wrapper book-two">
+
+  <div class="book-arrows">
+    <div class="arrow prev">prev</div>
+    <div class="arrow next">next</div>
+  </div>
+
+  <div class="book-container">
+    <div class="book" id="book2">
+      <div class="page">
+        <h1 class="title">C0llection 2</h1>
+      </div>
+
+      <div class="page">
+        <span></span>
+        <h1>Pr0duct 0ne</h1>
+        <h3>$80</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel sodales leo. Donec nec massa quam. Nullam tempor, sem sed lobortis viverra, erat velit convallis neque, quis tincidunt ligula justo vitae urna. Vestibulum interdum ligula eu tempus
+          vestibulum. Mauris vitae libero at eros aliquam pharetra.</p>
+        <div class="button">Purchase</div>
+      </div>
+      <div class="page">
+        <div class="product-image image-1" style="background-image: url(https://images.unsplash.com/photo-1519758340474-40fa8cba6584?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80)"></div>
+      </div>
+      <div class="page">
+        <span></span>
+        <h1>Pr0duct TW0</h1>
+        <h3>$100</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel sodales leo. Donec nec massa quam. Nullam tempor, sem sed lobortis viverra, erat velit convallis neque, quis tincidunt ligula justo vitae urna. Vestibulum interdum ligula eu tempus
+          vestibulum. Mauris vitae libero at eros aliquam pharetra.</p>
+        <div class="button">Purchase</div>
+      </div>
+      <div class="page">
+        <div class="product-image image-2" style="background-image: url(https://images.unsplash.com/photo-1523381294911-8d3cead13475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80)"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div id="music-container"></div>
+
+
+<div class="x">
+  <span></span>
+  <span></span>
+</div>
+
+
+
 </body>
 
-<script src="index.js"></script>
+
+<script src="assets/js/carosuel.js"></script>
+<script src="assets/js/book.js"></script>
+<script src="assets/js/plane.js"></script>
+<script src="assets/js/index.js"></script>
+<script src="assets/js/text.js"></script>
 
 </html>
