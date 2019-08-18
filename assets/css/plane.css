@@ -1,0 +1,126 @@
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(to bottom right, #2af3e3,#2401e1,#d1d9a6,#a80ede,#bfcfb2,#002cff,#11f218);
+}
+
+.ui-container {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  font-family: "Fira Mono";
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 15px;
+  color: #000;
+  z-index: 10000;
+  color: #F0F8FF;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #F0F8FF, 0 0 70px #F0F8FF, 0 0 80px #F0F8FF, 0 0 100px #F0F8FF, 0 0 150px #F0F8FF;
+}
+
+.nav {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.nav div {
+  display: block;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  font-family: "Fira Mono";
+  letter-spacing: 5px;
+  font-weight: 300;
+  color: #fff;
+}
+
+.menu {
+  position: absolute;
+  top: 20px;
+  left: 15px;
+  width: 50px;
+  height: 50px;
+}
+
+.menu span {
+  position: absolute;
+  width: 50px;
+  height: 2px;
+  background: #fff;
+}
+
+.menu span:nth-of-type(2) {
+  top: 8px;
+}
+
+.menu span:nth-of-type(3) {
+  top: 16px;
+  width: 28px;
+}
+
+canvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  filter: grayscale(100%);
+  -webkit-transition: opacity 3s ease;
+  transition: opacity 3s ease;
+}
+
+.ui-container.active canvas {
+  opacity: .1;
+}
+
+.enter {
+  position: absolute;
+  width: 200px;
+  height: 50px;
+  border: 1px solid #F0F8FF;
+  bottom: 150px;
+  left: 50%;
+  margin-left: -100px;
+  z-index: 10000;
+  cursor: pointer;
+  line-height: 50px;
+  padding-right: 20px;
+  box-shadow:  0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #F0F8FF, 0 0 70px #F0F8FF, 0 0 80px #F0F8FF, 0 0 100px #F0F8FF, 0 0 150px #F0F8FF;
+}
+
+.enter p {
+  font-family: "Fira Mono";
+  text-transform: uppercase;
+  text-align: right;
+  color: #F0F8FF;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #F0F8FF, 0 0 70px #F0F8FF, 0 0 80px #F0F8FF, 0 0 100px #F0F8FF, 0 0 150px #F0F8FF;
+}
+
+.enter span {
+  position: absolute;
+  width: 50px;
+  height: 1px;
+  background: #F0F8FF;
+  top: 24px;
+  right: 200px;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  box-shadow:  0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #F0F8FF, 0 0 70px #F0F8FF, 0 0 80px #F0F8FF, 0 0 100px #F0F8FF, 0 0 150px #F0F8FF;
+}
+
+.enter:hover span {
+  -webkit-transform: translate(10px, 0);
+  transform: translate(10px, 0);
+}
