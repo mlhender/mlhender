@@ -1,101 +1,116 @@
-"use strict";
 
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
+class TextScramble {
+  constructor(el) {
+    this.el = el
+    this.chars = '!<>-_\\/[]{}—=+*^?#$$%X'
+    this.update = this.update.bind(this)
+  }
+  setText(newText) {
+    const oldText = this.el.innerText
+    const length = Math.max(oldText.length, newText.length)
+    const promise = new Promise((resolve) => this.resolve = resolve)
+    this.queue = []
+    for (let i = 0; i < length; i++) {
+      const from = oldText[i] || ''
+      const to = newText[i] || ''
+      const start = Math.floor(Math.random() * 40)
+      const end = start + Math.floor(Math.random() * 40)
+      this.queue.push({ from, to, start, end })
+    }
+    cancelAnimationFrame(this.frameRequest)
+    this.frame = 0
+    this.update()
+    return promise
+  }
+  update() {
+    let output = ''
+    let complete = 0
+    for (let i = 0, n = this.queue.length; i < n; i++) {
+      let { from, to, start, end, char } = this.queue[i]
+      if (this.frame >= end) {
+        complete++
+        output += to
+      } else if (this.frame >= start) {
+        if (!char || Math.random() < 0.28) {
+          char = this.randomChar()
+          this.queue[i].char = char
+        }
+        output += `<span class="dud">${char}</span>`
+      } else {
+        output += from
+      }
+    }
+    this.el.innerHTML = output
+    if (complete === this.queue.length) {
+      this.resolve()
+    } else {
+      this.frameRequest = requestAnimationFrame(this.update)
+      this.frame++
+    }
+  }
+  randomChar() {
+    return this.chars[Math.floor(Math.random() * this.chars.length)]
   }
 }
 
 // ——————————————————————————————————————————————————
-// TextScramble
-// i——————————————————————————————————————————————————
-
-var TextScramble = (function() {
-  function TextScramble(el) {
-    _classCallCheck(this, TextScramble);
-
-    this.el = el;
-    this.chars = "!<>-_\\/[]{}—=+*^?#________";
-    this.update = this.update.bind(this);
-  }
-
-  TextScramble.prototype.setText = function setText(newText) {
-    var _this = this;
-
-    var oldText = this.el.innerText;
-    var length = Math.max(oldText.length, newText.length);
-    var promise = new Promise(function(resolve) {
-      return (_this.resolve = resolve);
-    });
-    this.queue = [];
-    for (var i = 0; i < length; i++) {
-      var from = oldText[i] || "";
-      var to = newText[i] || "";
-      var start = Math.floor(Math.random() * 40);
-      var end = start + Math.floor(Math.random() * 40);
-      this.queue.push({ from: from, to: to, start: start, end: end });
-    }
-    cancelAnimationFrame(this.frameRequest);
-    this.frame = 0;
-    this.update();
-    return promise;
-  };
-
-  TextScramble.prototype.update = function update() {
-    var output = "";
-    var complete = 0;
-    for (var i = 0, n = this.queue.length; i < n; i++) {
-      var _queue$i = this.queue[i];
-      var from = _queue$i.from;
-      var to = _queue$i.to;
-      var start = _queue$i.start;
-      var end = _queue$i.end;
-      var char = _queue$i.char;
-
-      if (this.frame >= end) {
-        complete++;
-        output += to;
-      } else if (this.frame >= start) {
-        if (!char || Math.random() < 0.28) {
-          char = this.randomChar();
-          this.queue[i].char = char;
-        }
-        output += '<span class="dud">' + char + "</span>";
-      } else {
-        output += from;
-      }
-    }
-    this.el.innerHTML = output;
-    if (complete === this.queue.length) {
-      this.resolve();
-    } else {
-      this.frameRequest = requestAnimationFrame(this.update);
-      this.frame++;
-    }
-  };
-
-  TextScramble.prototype.randomChar = function randomChar() {
-    return this.chars[Math.floor(Math.random() * this.chars.length)];
-  };
-
-  return TextScramble;
-})();
-
-// —————————————————————————————————————————————————
 // Example
-// —————————————————————————————————————————————————
+// ——————————————————————————————————————————————————
 
-var el = document.querySelector(".scrambled");
-var fx = new TextScramble(el);
-var ot = el.innerHTML;
-var nt = el.title;
+const phrases = [
+  'Store',
+  '0X00',
+  '0X01',
+  '0x02',
+  '0x03'
+]
 
-var next = function next() {
-  fx.setText(nt).then(function() {
+const el = document.querySelector('.scrambled')
+const fx = new TextScramble(el)
+let counter = 0
 
+
+const next = () => {
+  fx.setText(phrases[counter]).then(() => {
+    console.log("what are you doing here?");
+  })
+  counter = (counter + 1) % phrases.length
+}
+
+const prev = () => {
+  fx.setText(phrases[counter]).then(() => {
+    console.log("what are you doing here?");
+  })
+  counter = (counter - 1) % phrases.length
+}
+
+fx.setText(phrases[0]).then(() => {
+});
+
+$(".collection-1").click(function() {
+  fx.setText(phrases[1]).then(() => {
   });
-  el.innerHTML = nt;
-  el.title = ot;
-};
+});
 
-next();
+$(".collection-2").click(function() {
+  fx.setText(phrases[2]).then(() => {
+  });
+});
+
+
+$(".collection-3").click(function() {
+  fx.setText(phrases[3]).then(() => {
+  });
+});
+
+
+$(".collection-4").click(function() {
+  fx.setText(phrases[4]).then(() => {
+  });
+});
+
+
+$(".collection-5").click(function() {
+  fx.setText(phrases[5]).then(() => {
+  });
+});

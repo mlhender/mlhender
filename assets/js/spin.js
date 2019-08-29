@@ -1,4 +1,3 @@
-
 // Các bạn có thể thay đổi giá trị các biến môi trường ở đây:
 var radius = 240; 		// Độ rộng vòng xoay
 var autoRotate = true;	// Tự động xoay hay không
@@ -7,7 +6,6 @@ var rotateSpeed = -0.1;	// Nếu tự động xoay thì sẽ xoay với tốc đ
 // Link nhạc nền - cho bằng null nếu không muốn nhạc nền
 var bgMusicURL = 'https://api.soundcloud.com/tracks/143041228/stream?client_id=587aa2d384f7333a886010d5f52f302a';
 var bgMusicControls = false; // Hiện khung điều khiển nhạc nền hay không
-
 // Link nhạc lấy từ: https://hoangtran0410.github.io/Visualyze-design-your-own-/
 
 // start
@@ -125,10 +123,7 @@ if(mobilecheck()) {
     return false;
   }
   document.onmousewheel = function(e) {
-    e = e || window.event;
-    var d = e.wheelDelta / 20 || -e.detail;
-    radius += d;
-    init(5);
+
   };
 }
 
@@ -141,84 +136,7 @@ function mobilecheck() {
 
 rotateSpeed = 0;
 
-
-
-  $(".stop").click(function() {
-    rotateSpeed = 0;
-  });
-
-  $(".start").click(function() {
-    rotateSpeed = -0.1;
-  });
-
-  $(".enter").click(function(){
-
-    $('.ui-container').fadeOut('slow', function() {
-      $(this).remove();
-    });
-    $('.text').fadeOut('slow', function() {
-      $(this).remove();
-    });
-
-    setTimeout(function() {
-      setTimeout(init, 0);
-      rotateSpeed = -0.1;
-    }, 2000);
-
-  });
-
-
-
-    var curBook = $("#book1");
-
-
-
-    $(".one").click(function() {
-      $(".book-one").addClass("active");
-      curBook = $("#book1");
-      curBook.turn("page", 2);
-      $(".prev").addClass("noclick");
-
-      $(".x").addClass("active");
-      rotateSpeed = 0;
-    });
-
-    $(".two").click(function() {
-      $(".book-two").addClass("active");
-      curBook = $("#book2");
-      curBook.turn("page", 2);
-      $(".prev").addClass("noclick");
-
-      $(".x").addClass("active");
-      rotateSpeed = 0;
-    });
-
-    $(".three").click(function() {
-      $(".book-three").addClass("active");
-      curBook = $("#book3");
-      curBook.turn("page", 2);
-      $(".prev").addClass("noclick");
-
-      $(".x").addClass("active");
-      rotateSpeed = 0;
-    });
-
-    $(".four").click(function() {
-      $(".book-four").addClass("active");
-      curBook = $("#book4");
-      curBook.turn("page", 2);
-      $(".prev").addClass("noclick");
-
-      $(".x").addClass("active");
-      rotateSpeed = 0;
-    });
-
-    $(".x").click(function() {
-      $(".x").removeClass("active");
-      $(".book-wrapper").removeClass("active");
-      curBook.turn("page", 2);
-      $(".prev").addClass("noclick");
-      $(".next").removeClass("noclick");
-
-      rotateSpeed = -0.1;
-    });
+window.onload = function() {
+  setTimeout(init, 0);
+  rotateSpeed = -0.1;
+};

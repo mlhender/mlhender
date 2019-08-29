@@ -1,0 +1,69 @@
+.store-text {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  font-family: "Druk Wide Web";
+  text-transform: uppercase;
+  font-size: 120px;
+  color: #fff;
+  margin: 0;
+  mix-blend-mode: difference;
+  user-select: none;
+  pointer-events: none;
+}
+
+
+.product {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  visibility: hidden;
+  overflow-y: scroll;
+}
+
+.product.open {
+  visibility: visible;
+}
+
+.buy {
+  position: fixed;
+  right: 25px;
+  margin: 0;
+  font-family: "Druk Wide Web";
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 60px;
+  mix-blend-mode: difference;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+}
+
+.buy span {
+  text-decoration: underline;
+}
+
+.x {
+  position: fixed;
+  font-family: "Druk Wide Web";
+  z-index: 1000;
+  text-transform: uppercase;
+  left: 10px;
+  top: 10px;
+  color: #fff;
+  text-decoration: underline;
+  visibility: hidden;
+  font-size: 90px;
+  mix-blend-mode: difference;
+  cursor: pointer;
+}
+
+.x.open {
+  visibility: visible;
+}
+
+.product img {
+  max-width: 80%;
+}

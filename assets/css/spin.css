@@ -8,8 +8,7 @@ body {
   height: 100vh;
   width: 100%;
   overflow: hidden;
-  position: fixed;
-  top: 0;
+  background: #000;
 }
 
 body {
@@ -24,10 +23,10 @@ body {
   top: 50%;
   left: 50%;
   display: flex;
-  width: 130px;
-  height: 200px;
-  margin-left: -65px;
-  margin-top: -100px;
+  width: 200px;
+  height: 300px;
+  margin-left: -100px;
+  margin-top: -150px;
   transform-style: preserve-3d;
   transform: rotateX(-10deg);
 }
@@ -60,24 +59,25 @@ body {
   transform: translateY(100px) rotateX(90deg);
   */
   position: absolute;
-  bottom: 80px;
+  bottom: 130px;
 
   transform-origin: center;
   color: #F0F8FF;
-  font-family: "Fira Mono";
-  font-size: 30px;
+  font-family: "Druk Wide Web";
+  font-size: 25px;
   white-space: nowrap;
-  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #F0F8FF, 0 0 70px #F0F8FF, 0 0 80px #F0F8FF, 0 0 100px #F0F8FF, 0 0 150px #F0F8FF;
+  /*text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #F0F8FF, 0 0 70px #F0F8FF, 0 0 80px #F0F8FF, 0 0 100px #F0F8FF, 0 0 150px #F0F8FF;*/
+  text-shadow: 0 0 10px #999, 0 0 20px #999, 0 0 30px #999, 0 0 40px #999, 0 0 70px #999, 0 0 80px #999, 0 0 100px #999, 0 0 150px #999;
 }
 
 .a {
   -webkit-transform: translateX(-50px);
-  transform: translateX(-50px);
+  transform: translateX(-70px);
 }
 
 .b {
   -webkit-transform: translateX(-50px);
-  transform: translateX(-50px) rotateY(90deg);
+  transform: translateX(-70px) rotateY(90deg);
 }
 
 .collection {
@@ -86,20 +86,20 @@ body {
 
 }
 
-.one {
-  background-image: url("https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=662&q=80");
+.collection-1 {
+  background-image: url("../img/one.jpg");
 }
 
-.two {
-  background-image: url("https://images.unsplash.com/photo-1519758340474-40fa8cba6584?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
+.collection-2 {
+  background-image: url("../img/two.jpg");
 }
 
-.three {
-  background-image: url("https://images.unsplash.com/photo-1508216310976-c518daae0cdc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=647&q=80");
+.collection-3 {
+  background-image: url("../img/three.jpg");
 }
 
-.four {
-  background-image: url("https://images.unsplash.com/photo-1535730142260-496e3db19f6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=332&q=80");
+.collection-4 {
+  background-image: url("../img/four.jpg");
 }
 
 .collection-title {
@@ -109,8 +109,8 @@ body {
   text-align: center;
   position: absolute;
   top: -25px;
-  font-family: "Fira Mono";
+  font-family:  "Druk Wide Web";
   font-size: 16px;
   white-space: nowrap;
-  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #F0F8FF, 0 0 70px #F0F8FF, 0 0 80px #F0F8FF, 0 0 100px #F0F8FF, 0 0 150px #F0F8FF;
+  text-shadow: 0 0 10px #999, 0 0 20px #999, 0 0 30px #999, 0 0 40px #999, 0 0 70px #999, 0 0 80px #999, 0 0 100px #999, 0 0 150px #999;
 }
